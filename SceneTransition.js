@@ -1,5 +1,7 @@
 const SCENE_ORDER = ['ForestScene', 'OceanScene', 'DesertScene', 'SpaceScene', 'CityScene'];
 
+function preload() {}
+
 function addSceneTransition(scene) {
     const currentIndex = SCENE_ORDER.indexOf(scene.scene.key);
     const isLast = currentIndex === SCENE_ORDER.length - 1;

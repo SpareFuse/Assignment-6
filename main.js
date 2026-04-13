@@ -4,7 +4,7 @@ const config = {
     height: 600,
     parent: 'game-container',
     backgroundColor: '#000000',
-    scene: SCENE_ORDER.map(key => window[key])
+    scene: [ForestScene, OceanScene, DesertScene, SpaceScene, CityScene]
 };
 
 const game = new Phaser.Game(config);

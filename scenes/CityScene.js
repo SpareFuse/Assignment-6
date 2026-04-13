@@ -5,16 +5,11 @@ class CityScene extends Phaser.Scene {
 
     create() {
         // Night sky
-        const sky = this.add.graphics();
-        sky.fillStyle(0x0a0a2e);
-        sky.fillRect(0, 0, 800, 600);
+        this.add.rectangle(400, 300, 800, 600, 0x0a0a2e);
 
-        // Moon (crescent via overlapping circles)
-        const moon = this.add.graphics();
-        moon.fillStyle(0xFFF8DC);
-        moon.fillCircle(700, 60, 25);
-        moon.fillStyle(0x0a0a2e);
-        moon.fillCircle(708, 55, 23);
+        // Moon
+        this.add.circle(700, 60, 25, 0xFFF8DC);
+        this.add.circle(708, 55, 23, 0x0a0a2e);
 
         // Buildings with windows
         const buildings = this.add.graphics();

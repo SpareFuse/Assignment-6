@@ -12,9 +12,7 @@ class ForestScene extends Phaser.Scene {
         sky.fillRect(0, 300, 800, 300);
 
         // Sun
-        const sun = this.add.graphics();
-        sun.fillStyle(0xFFDD00);
-        sun.fillCircle(650, 80, 50);
+        this.add.circle(650, 80, 50, 0xFFDD00);
 
         // Ground
         const ground = this.add.graphics();

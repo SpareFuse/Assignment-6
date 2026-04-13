@@ -12,11 +12,16 @@ class DesertScene extends Phaser.Scene {
         bg.fillRect(0, 200, 800, 200);
 
         // Sand
-        this.add.rectangle(400, 500, 800, 200, 0xEDC967);
+        const sand = this.add.graphics();
+        sand.fillStyle(0xEDC967);
+        sand.fillRect(0, 400, 800, 200);
 
         // Sun
-        this.add.circle(400, 100, 60, 0xFFDD00);
-        this.add.circle(400, 100, 75, 0xFFDD00, 0.2);
+        const sun = this.add.graphics();
+        sun.fillStyle(0xFFDD00, 0.2);
+        sun.fillCircle(400, 100, 75);
+        sun.fillStyle(0xFFDD00);
+        sun.fillCircle(400, 100, 60);
 
         // Pyramids
         const pyr = this.add.graphics();
@@ -41,14 +46,16 @@ class DesertScene extends Phaser.Scene {
 
         // Blowing sand
         for (let i = 0; i < 8; i++) {
-            const p = this.add.circle(
-                Phaser.Math.Between(0, 800),
-                Phaser.Math.Between(380, 480),
-                2, 0xEDC967, 0.6
-            );
+            const px = Phaser.Math.Between(0, 800);
+            const py = Phaser.Math.Between(380, 480);
+            const p = this.add.graphics();
+            p.fillStyle(0xEDC967, 0.6);
+            p.fillCircle(0, 0, 2);
+            p.setPosition(px, py);
+
             this.tweens.add({
                 targets: p,
-                x: p.x + 200,
+                x: px + 200,
                 alpha: 0,
                 duration: Phaser.Math.Between(2000, 4000),
                 repeat: -1

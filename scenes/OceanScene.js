@@ -13,11 +13,14 @@ class OceanScene extends Phaser.Scene {
 
         // Bubbles
         for (let i = 0; i < 15; i++) {
-            const bubble = this.add.circle(
-                Phaser.Math.Between(20, 780),
-                Phaser.Math.Between(100, 580),
-                Phaser.Math.Between(3, 8)
-            ).setStrokeStyle(1.5, 0x88DDFF, 0.5).setAlpha(0);
+            const bx = Phaser.Math.Between(20, 780);
+            const by = Phaser.Math.Between(100, 580);
+            const br = Phaser.Math.Between(3, 8);
+            const bubble = this.add.graphics();
+            bubble.lineStyle(1.5, 0x88DDFF, 0.5);
+            bubble.strokeCircle(0, 0, br);
+            bubble.setPosition(bx, by);
+            bubble.setAlpha(0);
 
             this.tweens.add({
                 targets: bubble,

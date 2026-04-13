@@ -5,17 +5,21 @@ class SpaceScene extends Phaser.Scene {
 
     create() {
         // Background
-        this.add.rectangle(400, 300, 800, 600, 0x050510);
+        const bg = this.add.graphics();
+        bg.fillStyle(0x050510);
+        bg.fillRect(0, 0, 800, 600);
 
         // Stars
         for (let i = 0; i < 80; i++) {
-            const star = this.add.circle(
-                Phaser.Math.Between(0, 800),
-                Phaser.Math.Between(0, 600),
-                Phaser.Math.Between(1, 2),
-                0xFFFFFF,
-                Phaser.Math.FloatBetween(0.3, 1.0)
-            );
+            const sx = Phaser.Math.Between(0, 800);
+            const sy = Phaser.Math.Between(0, 600);
+            const sr = Phaser.Math.Between(1, 2);
+            const star = this.add.graphics();
+            star.fillStyle(0xFFFFFF);
+            star.fillCircle(0, 0, sr);
+            star.setPosition(sx, sy);
+            star.setAlpha(Phaser.Math.FloatBetween(0.3, 1.0));
+
             this.tweens.add({
                 targets: star,
                 alpha: 0.2,
@@ -35,7 +39,8 @@ class SpaceScene extends Phaser.Scene {
         planet.strokeEllipse(550, 280, 185, 42);
 
         // Small blue planet
-        this.add.circle(180, 200, 22, 0x4169E1);
+        planet.fillStyle(0x4169E1);
+        planet.fillCircle(180, 200, 22);
 
         // Title
         this.add.text(400, 40, 'Space', {

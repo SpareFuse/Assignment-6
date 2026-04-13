@@ -24,12 +24,12 @@ function addSceneTransition(scene) {
             repeat: -1
         });
     } else {
-        scene.add.text(400, 565, 'Press SPACE for next scene', {
-            fontSize: '16px',
+        scene.add.text(400, 540, 'Press SPACE for next scene', {
+            fontSize: '20px',
             fontFamily: 'Gotham',
             color: '#AABBEE',
             stroke: '#000000',
-            strokeThickness: 2
+            strokeThickness: 3
         }).setOrigin(0.5);
     }
 

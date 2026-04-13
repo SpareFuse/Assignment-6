@@ -7,32 +7,32 @@ function addSceneTransition(scene) {
     const isLast = currentIndex === SCENE_ORDER.length - 1;
     const nextScene = SCENE_ORDER[(currentIndex + 1) % SCENE_ORDER.length];
 
+    let text = undefined;
     if (isLast) {
-        const restartText = scene.add.text(400, 540, 'Press SPACE to restart', {
-            fontSize: '20px',
+       text = scene.add.text(400, 540, 'Press SPACE to restart', {
+            fontSize: '32px',
             fontFamily: 'Gotham',
-            color: '#AABBEE',
+            color: '#ff0000',
             stroke: '#000000',
             strokeThickness: 3
         }).setOrigin(0.5);
-
-        scene.tweens.add({
-            targets: restartText,
-            alpha: 0.4,
-            duration: 900,
-            yoyo: true,
-            repeat: -1
-        });
     } else {
-        scene.add.text(400, 540, 'Press SPACE for next scene', {
-            fontSize: '20px',
+       text = scene.add.text(400, 540, 'Press SPACE for next scene', {
+            fontSize: '32px',
             fontFamily: 'Gotham',
-            color: '#AABBEE',
+            color: '#ff0000',
             stroke: '#000000',
             strokeThickness: 3
         }).setOrigin(0.5);
     }
 
+    scene.tweens.add({
+        targets: text,
+        alpha: 0.4,
+        duration: 900,
+        yoyo: true,
+        repeat: -1
+     });
     scene.cameras.main.fadeIn(800, 0, 0, 0);
 
     scene.transitioning = false;

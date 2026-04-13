@@ -7,9 +7,7 @@ class DesertScene extends Phaser.Scene {
         // Sky
         const bg = this.add.graphics();
         bg.fillStyle(0xFF8C42);
-        bg.fillRect(0, 0, 800, 200);
-        bg.fillStyle(0xFFF4B8);
-        bg.fillRect(0, 200, 800, 200);
+        bg.fillRect(0, 0, 800, 600);
 
         // Sand
         this.add.rectangle(400, 500, 800, 200, 0xEDC967);

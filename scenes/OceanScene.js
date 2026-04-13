@@ -6,8 +6,10 @@ class OceanScene extends Phaser.Scene {
     create() {
         // Water gradient
         const bg = this.add.graphics();
-        bg.fillGradientStyle(0x0077BE, 0x0077BE, 0x001133, 0x001133, 1);
-        bg.fillRect(0, 0, 800, 600);
+        bg.fillStyle(0x0077BE);
+        bg.fillRect(0, 0, 800, 300);
+        bg.fillStyle(0x001133);
+        bg.fillRect(0, 300, 800, 300);
 
         // Bubbles
         for (let i = 0; i < 15; i++) {

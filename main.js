@@ -4,7 +4,14 @@ const config = {
     height: 600,
     parent: 'game-container',
     backgroundColor: '#000000',
-    scene: [ForestScene, OceanScene, DesertScene, SpaceScene, CityScene]
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: [ForestScene, OceanScene, DesertScene, SpaceScene, CityScene, GameScene]
 };
 
 const game = new Phaser.Game(config);

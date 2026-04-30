@@ -1,4 +1,4 @@
-const SCENE_ORDER = ['ForestScene', 'OceanScene', 'DesertScene', 'SpaceScene', 'CityScene'];
+const SCENE_ORDER = ['ForestScene', 'OceanScene', 'DesertScene', 'SpaceScene', 'CityScene', 'GameScene'];
 
 function preload() {}
 
@@ -9,7 +9,7 @@ function addSceneTransition(scene) {
 
     let text = undefined;
     if (isLast) {
-       text = scene.add.text(400, 540, 'Press SPACE to restart', {
+       text = scene.add.text(400, 540, 'Press ENTER to restart', {
             fontSize: '32px',
             fontFamily: 'Gotham',
             color: '#ff0000',
@@ -17,7 +17,7 @@ function addSceneTransition(scene) {
             strokeThickness: 3
         }).setOrigin(0.5);
     } else {
-       text = scene.add.text(400, 540, 'Press SPACE for next scene', {
+       text = scene.add.text(400, 540, 'Press ENTER for next scene', {
             fontSize: '32px',
             fontFamily: 'Gotham',
             color: '#ff0000',
@@ -35,8 +35,10 @@ function addSceneTransition(scene) {
      });
     scene.cameras.main.fadeIn(800, 0, 0, 0);
 
+    scene.input.keyboard.addCapture('ENTER');
+
     scene.transitioning = false;
-    scene.input.keyboard.on('keydown-SPACE', () => {
+    scene.input.keyboard.on('keydown-ENTER', () => {
         if (scene.transitioning) return;
         scene.transitioning = true;
         scene.cameras.main.fadeOut(600, 0, 0, 0);
